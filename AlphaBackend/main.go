@@ -78,7 +78,7 @@ func main() {
 	
 	app.Use(cors.New(cors.Config{
 			AllowCredentials: true,
-			AllowOrigins: "*",
+			AllowOrigins: "http://localhost:5173",
 			AllowMethods: "GET, PUT, POST, DELETE, OPTIONS",
 			AllowHeaders: "Origin, Content-Type, Accept, Authorization",
 			
@@ -92,6 +92,7 @@ func main() {
 		cookie.Name = "yourCookieName"
 		cookie.Value = "yourCookieValue"
 		cookie.Expires = time.Now().Add(24 * time.Hour) // Set the cookie expiration time
+		cookie.SameSite = "None"
 	
 		// Add the cookie to the response
 		c.Cookie(cookie)
